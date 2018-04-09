@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- **** Fonts **** -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+		<link rel="stylesheet" href="https://use.typekit.net/car3eln.css">
+
+		<!-- **** Stylesheets **** -->
+		<link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/styles/style.css">
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<title>Chirp | A Sentiment Analysis Tool</title>
+	</head>
+	<body>
+
+<!-- 
+	*************************** Jumbotron ***************************
+-->
+<section>
+ <div class="row justify-content-md-center">
+  <div class="jumbotron col-md-8">
+
+   <h1 class="main-page-header">chirp<span style="color: #53F58B;">.</span></h1>
+   <p class="main-page-subtext">Find Out What The World Is Thinking.</p>
+
+   <form id="submit-form" class="form-inline col-md-12">
+    <button id="trending-search-submit-btn" class="btn btn-secondary rounded-0" type="submit"><i class="fa fa-search"></i></button>
+    <label class="sr-only" for="trending-search-input"></label>
+    <input id="trending-search-input" class="form-control rounded-0" type="text" placeholder="Trending topics...">
+   </form>
+
+    <div class="row">
+    	<div id="recent-searches" class="col-md-12"></div>
+    </div>
+
+  </div>
+ </div>	
+</section>
+
+<!-- 
+	*************************** Body *************************** 
+-->
+<div class="container">
+
+<!-- 
+	*************************** Trending Topics *************************** 
+-->
+
+ <div class="main-body-trending">
+
+ 	<p class="main-page-subtext-alt">What's Trending?</p><hr>
+  <img class="main-page-thumbnail" src="assets/images/conversation.png">
+  <h2>The <strong style="color: #53F58B">big</strong> topics being discussed today.</h2>
+ </div>
+ 
+ <div id="main-page-trending" class="rounded">
+ 	<p>Popular in <span id="trending-area">Richmond, Virginia</span>:</p>
+  <div id="trending-topics"></div>
+  <p>Pick A New Location:</p>
+	<form id="location-search-form" class="form-inline col-md-12">
+   <button id="location-search-submit-btn" class="btn btn-secondary rounded-0" type="submit"><i class="fa fa-search"></i></button>
+   <label class="sr-only" for="location-search-input"></label>
+   <input id="location-search-input" class="form-control rounded-0" type="text" placeholder="City, State or Country">
+  </form>
+ </div>
+
+<!-- 
+	*************************** Sentiment Analysis *************************** 
+-->
+ <div id="sentiment-div">
+ 	<p class="main-page-subtext-alt">Sentiment Analysis</p><hr>
+ 	<img class="main-page-thumbnail" src="assets/images/idea.png">
+ 	<h2 class="offset-md-3 col-md-6 col-s-12">How do people <strong style="color: #53F58B">feel</strong> about what's happening around them?</h2>
+ 	 <div id="sentimental-div" class="col-md-12 rounded mt-1">
+ 	 	<i id="loading-icon" class="fa fa-cog fa-spin fa-3x fa-fw text-center"></i>
+ 	 	<div class="container">
+ 	 		<div id="overall-sentiment" class="row"></div>
+ 	 	</div>
+ 	 </div>
+ 	</div>
+
+ <!-- 
+	*************************** Popular & Recent Tweets *************************** 
+-->
+ <div class="row mt-5">
+ 	<div id="popular-div" class="col-s-12 col-md-6 rounded">
+   <h3>Popular Tweets</h3>
+   <div id="popular-tweets" class="col-s-12 col-md-11 rounded"></div>
+	</div>
+	
+  <div id="recent-div" class="col-s-12 col-md-6 rounded">
+   <h3 class="offset-md-1">Recent Tweets</h3>
+   <div id="recent-tweets" class="col-s-12 col-md-11 offset-md-1 rounded"></div>
+  </div>
+ </div>
+</div>
+
+<!-- 
+	*************************** Footer *************************** 
+-->
+<footer class="container-fluid footer">
+ <h4 class="footer-header text-center">chirp<span style="color: #53F58B">.</span></h4>
+ <h6 class="footer-header text-center">Crafted in RVA</h6>
+ <h6 class="footer-header text-center">&copy; 2017 Designed by Nalease, Jared, Rob, David</h6>
+</footer>
+
+<!-- 
+	*************************** Twitter Javascript Links *************************** 
+-->
+	<script>window.twttr=(function(d, s, id) {
+	  var js, fjs=d.getElementsByTagName(s)[0],
+	    t=window.twttr || {};
+	  if (d.getElementById(id)) return t;
+	  js=d.createElement(s);
+	  js.id=id;
+	  js.src="https://platform.twitter.com/widgets.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+
+	  t._e=[];
+	  t.ready=function(f) {
+	    t._e.push(f);
+	  };
+
+	  return t;
+	}(document, "script", "twitter-wjs"));</script>
+
+	<!-- **** Javascript links **** -->
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config={
+	    apiKey: "AIzaSyA4kMpgBqaD9e7CGSipQEzcJloQzIKz5WM",
+	    authDomain: "twitter-sentimen-1513122943355.firebaseapp.com",
+	    databaseURL: "https://twitter-sentimen-1513122943355.firebaseio.com",
+	    projectId: "twitter-sentimen-1513122943355",
+	    storageBucket: "twitter-sentimen-1513122943355.appspot.com",
+	    messagingSenderId: "772289189773"
+	  };
+	  firebase.initializeApp(config);
+	</script>	
+
+	<script src="assets/scripts/script.js" type="text/javascript"></script>
+
+</body>
+</html>

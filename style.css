@@ -1,0 +1,295 @@
+/*Global Styling*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #F2F2F2;
+	font-family: "Lato", sans-serif; 
+	font-size: 18px;
+	line-height: 34px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "sofia-pro", sans-serif;
+}
+
+h1 {
+	margin-bottom: 0px;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 20%;               
+  background-color: #A8A8A8;
+  height: 2px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+#loading-icon {
+	font-size:50px;
+}
+
+/*Global Classes*/
+
+
+
+.row {
+	margin-bottom: 10px;
+}
+
+.btn {
+	margin-bottom: 4px;
+	margin-left: 2px;
+}
+
+.main-page-thumbnail { 
+	margin-bottom: 20px; 
+}
+
+.main-page-subtext {
+	color: #53F58B;
+	text-transform: capitalize;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-family: "sofia-pro", "Lato", sans-serif;
+}
+
+.main-page-subtext-alt {
+	letter-spacing: 1.5px;
+	font-size: 18px;
+	padding-top: 80px;
+	color: #A8A8A8;
+	margin-bottom: 0px;
+	font-family: "sofia-pro", sans-serif;
+}
+
+.main-body-trending {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.fa-caret-up {
+	color: #43A759;
+	position: absolute;
+	right: 83%;
+}
+
+.fa-caret-down {
+	color: #E84848;
+	position: absolute;
+	right: 83%;
+}
+
+.jumbotron {
+	text-align: center;
+  background: rgb(100, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  max-height: 904px;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* Header & Jumbotron*/
+
+
+
+section {
+	background: url("../images/header-people.jpg");
+	padding: 50px;
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#trending-search-input {
+	border: white;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	width: 80%;
+}
+
+#trending-search-submit-btn {
+	margin:0px;
+}
+
+#submit-form {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-height: 70px;
+}
+
+#recent-searches {
+	min-height: 50px;
+}
+
+	.recent-search-link {
+		text-transform: capitalize;
+	}
+
+	.recent-search-link:after {
+		content: ', ';
+	}
+
+	.recent-search-link:last-child:after {
+		content: '';
+	}
+
+	.recent-search-link:hover {
+		cursor: pointer;
+	}
+
+
+
+/* Trending */
+
+
+
+#main-page-trending {
+	text-align: center;
+	background-color: white;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #FFFFFF;
+}
+
+#location-search-submit-btn {
+	margin:0px;
+}
+
+#location-search-input {
+	border: #727B83 1px solid;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	width: 85%;
+}
+
+#location-search-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 15px;
+}
+
+
+
+/* Sentiment Div */
+
+
+
+#sentiment-div {
+	text-align: center;
+}
+
+#sentimental-div {
+	background-color: white;
+	margin-top: 80px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #FFFFFF;
+	text-align: center;
+}
+
+.sentiment-label {
+	margin: 8px 0 0 0;
+	text-decoration: underline;
+}
+
+
+
+/* Recent & Popular Div*/
+
+
+
+#recent-div, 
+#popular-div {
+	visibility: hidden;
+	text-align: center;
+}
+
+#popular-tweets,
+#recent-tweets {
+	background-color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 5px solid #FFFFFF;
+	max-height: 500px;
+	overflow: scroll;
+}
+
+
+
+/*Footer*/
+
+
+
+.footer {
+	margin-bottom: 0px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: white;
+  background: rgb(100, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.footer-header {
+	margin-bottom: 0px;
+}
+
+
+
+/* Media Queries */
+
+
+
+@media screen and (max-width: 768px) {
+ h1 {
+ 	font-size: 32px;
+ 	font-weight: 400;
+ }	
+
+ h4 {
+	font-size: 20px;
+ }
+
+ .main-page-subtext-alt {
+  	padding-top: 30px;
+ }
+
+ #main-page-trending,
+ #sentimental-div {
+  	margin-top: 30px;
+ }
+}
